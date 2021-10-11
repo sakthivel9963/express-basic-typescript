@@ -2,7 +2,7 @@ import express, { Request, Response, Router } from 'express';
 
 const router: Router = express.Router();
 
-const exampleRouter = require('./api/example/example.router');
+import exampleRouter from './api/example/example.router';
 
 router.get('/ping', (req: Request, res: Response) => {
   res.json({
@@ -13,4 +13,4 @@ router.get('/ping', (req: Request, res: Response) => {
 
 router.use('/example', exampleRouter);
 
-export = router;
+export default router;

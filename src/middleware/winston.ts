@@ -1,5 +1,5 @@
-const winston = require('winston');
-const path = require('path');
+import winston from 'winston';
+import path from 'path';
 
 const rootDir = path.join(__dirname, '../../');
 const currentDate = new Date();
@@ -34,7 +34,7 @@ const options = {
   },
 };
 
-const logger = winston.createLogger({
+export const logger = winston.createLogger({
   transports: [
     new winston.transports.File(options.infoFile),
     new winston.transports.File(options.errorFile),
@@ -43,11 +43,8 @@ const logger = winston.createLogger({
   exitOnError: false, // do not exit on handled exceptions
 });
 
-// @ts-ignore
-logger.stream = {
-  write(message: any, encoding: any) {
+export const stream = {
+  write: (message: string) => {
     logger.info(message);
   },
 };
-
-module.exports = logger;

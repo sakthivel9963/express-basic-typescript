@@ -2,8 +2,8 @@ import express, { Router } from 'express';
 
 const router: Router = express.Router();
 
-const ExampleController = require('./example.contoller');
+import ExampleController from './example.controller';
 
 router.get('/', ExampleController.save);
 
-module.exports = router;
+export default router;

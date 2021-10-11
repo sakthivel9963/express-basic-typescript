@@ -1,2 +1,2 @@
 const example = {};
-module.exports = example;
+export default example;
