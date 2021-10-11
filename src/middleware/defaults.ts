@@ -19,7 +19,6 @@ export const errorHandler = (
   console.error(error);
   const { message, stack } = error;
   const status = res.statusCode === 200 ? 500 : res.statusCode;
-  console.log();
   logger.error(
     `${req._startTime} - ${req._remoteAddress} - ${status} - ${req.originalUrl} - ${message} - ${stack} `
   );
